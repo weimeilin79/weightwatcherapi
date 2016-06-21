@@ -29,7 +29,7 @@
 	    <get uri="/addParticipant/{userid}/{username}/{target}/{start}/{low}/{high}">
 	      <to uri="direct:addParticipant"/>
 	    </get>
-	    <get uri="/updateweight/{userid}/{obsvalue}">
+	    <get uri="/updateweight/{userid}/{obsDate}/{obsvalue}">
 	      <to uri="direct:updateweight"/>
 	    </get>
 	</rest>
@@ -48,15 +48,14 @@
   </route>
   <route id="updateweight">
     <from uri="direct:updateweight"/>
-    <bean ref="beanCreator" method="addObservation(${headers.userid},${headers.obsvalue})"/>
+    <bean ref="beanCreator" method="addObservation(${headers.userid},${headers.obsDate},${headers.obsvalue})"/>
     <marshal>
       <json library="Jackson"/>
     </marshal>
     <log message="${body}" />
     <bean ref="beanCreator" method="setObservationFactJson(${headers.userid},${body})" />
     <bean ref="beanCreator" method="createSessionContent(${headers.userid})" />
-    <log message="${body}" />
-    <to uri="amq:queue:WEIGHTWATCHER"/>
+    <to uri="activemq:queue:WEIGHTWATCHER"/>
   </route>
 </camelContext>
 

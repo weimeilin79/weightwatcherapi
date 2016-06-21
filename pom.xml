@@ -128,8 +128,6 @@
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-jaxb</artifactId>
     </dependency>
-    
-    
   </dependencies>
   <repositories>
     <repository>

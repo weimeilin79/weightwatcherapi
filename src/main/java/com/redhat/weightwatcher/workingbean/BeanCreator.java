@@ -1,8 +1,6 @@
 package com.redhat.weightwatcher.workingbean;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -73,7 +71,7 @@ public class BeanCreator {
 		goalFactJson.put(userid, factjson);
 	}
 	
-	public Observation addObservation (int userid,String obsvalue){
+	public Observation addObservation (int userid,String obsdate, int obsvalue){
 		
 		List<Observation> theObservationList = oboservationPool.get(userid);
 		if(theObservationList == null){
@@ -82,11 +80,8 @@ public class BeanCreator {
 		}
 		Observation theObservation = new Observation();
 		theObservation.setUserid(userid);
-		theObservation.setObsvalue(Integer.parseInt(obsvalue));
-		Date todaytime = new Date();
-		SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss zzz");
-		
-		theObservation.setObsdate(ft.format(todaytime)+"");
+		theObservation.setObsvalue(obsvalue);
+		theObservation.setObsdate(obsdate);
 		
 		theObservationList.add(theObservation);
 		oboservationPool.put(userid,theObservationList);
