@@ -152,6 +152,17 @@
       <name>FuseSource Community Early Access Release Repository</name>
       <url>http://repo.fusesource.com/nexus/content/groups/ea</url>
     </repository>
+    <repository>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>ga.redhat.com</id>
+      <name>RedHat GA repository</name>
+      <url>https://maven.repository.redhat.com/ga</url>
+    </repository>
   </repositories>
   <pluginRepositories>
     <pluginRepository>
