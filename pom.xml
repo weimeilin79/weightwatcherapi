@@ -21,12 +21,12 @@
     
     <fabric8.label.container>java</fabric8.label.container>
     <fabric8.env.A_MQ_SERVICE_NAME>BROKER_AMQ_TCP</fabric8.env.A_MQ_SERVICE_NAME>
-    <fabric8.dockerUser>registry-default.cloudapps.summit.openshift3roadshow.com/</fabric8.dockerUser>
+    <fabric8.dockerUser>com.redhat/</fabric8.dockerUser>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <fabric8.service.containerPort>${http.port}</fabric8.service.containerPort>
     <fabric8.service.port>80</fabric8.service.port>
     <docker.from>jboss-fuse-6/fis-java-openshift:1.0</docker.from>
-    <fabric8.version>2.2.0.redhat-079</fabric8.version>
+    <fabric8.version>2.2.0.redhat-621030</fabric8.version>
     <docker.maven.plugin.version>0.13.6</docker.maven.plugin.version>
   </properties>
   <dependencyManagement>
@@ -192,7 +192,7 @@
                   <pluginExecutionFilter>
                     <groupId>io.fabric8</groupId>
                     <artifactId>fabric8-maven-plugin</artifactId>
-                    <versionRange>[2.2.0.redhat-079,)</versionRange>
+                    <versionRange>[2.2.0.redhat-621030,)</versionRange>
                     <goals>
                       <goal>json</goal>
                     </goals>
@@ -268,7 +268,6 @@
         <artifactId>docker-maven-plugin</artifactId>
         <version>${docker.maven.plugin.version}</version>
         <configuration>
-          <pushRegistry>registry-default.cloudapps.summit.openshift3roadshow.com:5000</pushRegistry>
           <images>
             <image>
               <name>${docker.image}</name>
