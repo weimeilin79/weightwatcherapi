@@ -55,7 +55,7 @@
     <log message="${body}" />
     <bean ref="beanCreator" method="setObservationFactJson(${headers.userid},${body})" />
     <bean ref="beanCreator" method="createSessionContent(${headers.userid})" />
-    <to uri="activemq:queue:WEIGHTWATCHER"/>
+    <to uri="amq:queue:WEIGHTWATCHER"/>
   </route>
 </camelContext>
 
